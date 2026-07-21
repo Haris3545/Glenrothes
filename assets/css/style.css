@@ -170,6 +170,15 @@ a {
   background: var(--gold);
 }
 
+.main-nav .logout-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cream-faint);
+}
+.main-nav .logout-link svg { width: 14px; height: 14px; }
+.main-nav .logout-link:hover { color: var(--gold-bright); }
+
 .nav-toggle {
   display: none;
   background: none;

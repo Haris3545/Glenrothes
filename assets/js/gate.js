@@ -5,7 +5,7 @@
   // Client-side gate only — a light-touch teaser lock, not real access control.
   // Change the password by editing this constant.
   var PASSWORD = "glenrothes";
-  var REDIRECT_TO = "index.html";
+  var REDIRECT_TO = "home.html";
 
   var stage = document.getElementById("gate-stage");
   var form = document.getElementById("gate-form");
