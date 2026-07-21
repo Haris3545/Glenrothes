@@ -1,0 +1,6 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Glenrothes crest">
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#c9a25d" stroke-width="1.4"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#c9a25d" stroke-width="0.6" opacity="0.6"/>
+  <path d="M32 14 L36 24 L47 24 L38 31 L41 42 L32 35 L23 42 L26 31 L17 24 L28 24 Z" fill="none" stroke="#e3c584" stroke-width="1.1"/>
+  <text x="32" y="52" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="9" fill="#e3c584" letter-spacing="1">1879</text>
+</svg>

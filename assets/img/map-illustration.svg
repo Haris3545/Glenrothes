@@ -1,0 +1,24 @@
+<svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylised map showing Rothes in Speyside, Scotland">
+  <rect width="600" height="340" fill="#201b14"/>
+  <g stroke="#c9a25d" stroke-width="0.6" opacity="0.35" fill="none">
+    <path d="M0 60 Q150 20 300 55 T600 40"/>
+    <path d="M0 130 Q160 90 320 120 T600 110"/>
+    <path d="M0 210 Q140 260 300 220 T600 235"/>
+    <path d="M0 290 Q170 250 340 285 T600 270"/>
+  </g>
+  <!-- river spey -->
+  <path d="M40 20 Q120 90 160 150 Q210 220 300 250 Q380 275 460 320" stroke="#5a7a72" stroke-width="3" fill="none" opacity="0.7"/>
+  <text x="250" y="180" font-family="Inter, sans-serif" font-size="11" fill="#5a8a80" letter-spacing="2">RIVER SPEY</text>
+
+  <!-- roads -->
+  <path d="M0 170 L600 150" stroke="#a8632d" stroke-width="1" stroke-dasharray="6 5" opacity="0.5"/>
+
+  <!-- marker -->
+  <g>
+    <circle cx="300" cy="150" r="70" fill="none" stroke="#c9a25d" stroke-width="0.5" opacity="0.4"/>
+    <path d="M300 110 C285 110 273 122 273 137 C273 158 300 185 300 185 C300 185 327 158 327 137 C327 122 315 110 300 110 Z" fill="#c9a25d"/>
+    <circle cx="300" cy="136" r="9" fill="#12100c"/>
+  </g>
+  <text x="300" y="205" text-anchor="middle" font-family="Playfair Display, serif" font-size="17" fill="#f2e9d8">Rothes</text>
+  <text x="300" y="224" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#cbb98f" letter-spacing="2">SPEYSIDE · MORAY · SCOTLAND</text>
+</svg>
