@@ -1,16 +1,21 @@
 /* The Distillery — password gate / landing page */
 
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap');
+/* Title font: "Span" (Jamie Clarke Type) is a paid commercial font and isn't
+   embedded here — swap this import + font-family for the licensed version
+   when it's available. Fraunces is a free stand-in with a similar organic,
+   stone-carved-inscription character. */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
 
 :root {
   --ink: #0d0c0a;
   --cream: #f4ecdd;
   --cream-dim: rgba(244, 236, 221, 0.72);
   --cream-faint: rgba(244, 236, 221, 0.46);
-  --gold: #c9a25d;
-  --gold-bright: #e3c584;
-  --sherry: #a3453a;
-  --hairline: rgba(227, 197, 132, 0.32);
+  --sage: #c5d3c7;
+  --sage-soft: rgba(197, 211, 199, 0.42);
+  --sage-glow: rgba(197, 211, 199, 0.18);
+  --btn-fill: rgba(68, 79, 67, 0.6);
+  --btn-fill-hover: rgba(68, 79, 67, 0.8);
 }
 
 * { box-sizing: border-box; }
@@ -31,7 +36,7 @@ body {
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--gold);
+  background: var(--sage);
   color: var(--ink);
   padding: 10px 18px;
   font-size: 14px;
@@ -96,7 +101,7 @@ body {
   position: relative;
   z-index: 3;
   width: 100%;
-  max-width: 480px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 40px 28px 56px;
   display: flex;
@@ -106,54 +111,34 @@ body {
 }
 
 .gate-logo {
-  width: min(360px, 78vw);
+  width: min(150px, 38vw);
   height: auto;
-  filter: drop-shadow(0 6px 26px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.55));
   opacity: 0;
   animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.15s forwards;
 }
 
 .gate-divider {
-  width: 46px;
+  width: 54px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 26px 0 20px;
+  background: linear-gradient(90deg, transparent, var(--sage), transparent);
+  margin: 24px 0 22px;
   opacity: 0;
   animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.4s forwards;
 }
 
 .gate-title {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Fraunces', Georgia, serif;
   font-weight: 500;
-  font-size: clamp(30px, 6vw, 46px);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin: 0;
+  font-size: clamp(38px, 9vw, 108px);
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+  white-space: nowrap;
+  margin: 0 0 46px;
   color: var(--cream);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.55);
   opacity: 0;
   animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.55s forwards;
-}
-
-.gate-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 11.5px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--gold-bright);
-  margin: 16px 0 0;
-  opacity: 0;
-  animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.7s forwards;
-}
-
-.gate-sub {
-  font-size: 15.5px;
-  color: var(--cream-dim);
-  max-width: 34ch;
-  margin: 10px 0 34px;
-  line-height: 1.6;
-  opacity: 0;
-  animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.7s forwards;
 }
 
 @keyframes rise {
@@ -164,14 +149,18 @@ body {
 /* ---------- Form ---------- */
 .gate-form {
   width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0;
-  animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.85s forwards;
+  animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.7s forwards;
 }
 
 .password-field {
   position: relative;
   width: 100%;
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--sage-soft);
   background: rgba(10, 9, 7, 0.38);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -180,8 +169,8 @@ body {
 }
 
 .password-field:focus-within {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201, 162, 93, 0.15);
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px var(--sage-glow);
 }
 
 .password-field input {
@@ -221,29 +210,33 @@ body {
   transition: color 0.2s ease;
 }
 .toggle-visibility:hover,
-.toggle-visibility:focus-visible { color: var(--gold-bright); }
+.toggle-visibility:focus-visible { color: var(--sage); }
 .toggle-visibility svg { width: 19px; height: 19px; }
 .toggle-visibility .icon-off { display: none; }
 .toggle-visibility.is-visible .icon-on { display: none; }
 .toggle-visibility.is-visible .icon-off { display: block; }
 
 .btn-enter {
-  margin-top: 16px;
-  width: 100%;
+  display: inline-block;
+  align-self: center;
+  width: auto;
+  margin-top: 18px;
   font-family: 'Inter', sans-serif;
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  padding: 16px 20px;
-  border: 1px solid var(--gold);
-  background: var(--gold);
-  color: #16130d;
-  border-radius: 3px;
+  padding: 16px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--btn-fill);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--cream);
+  border-radius: 999px;
   cursor: pointer;
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
 }
-.btn-enter:hover { background: var(--gold-bright); border-color: var(--gold-bright); }
+.btn-enter:hover { background: var(--btn-fill-hover); border-color: rgba(255, 255, 255, 0.32); }
 .btn-enter:active { transform: scale(0.98); }
 .btn-enter:disabled { opacity: 0.65; cursor: default; transform: none; }
 
@@ -291,7 +284,7 @@ body {
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold-bright);
+  color: var(--sage);
   margin-top: 16px;
 }
 .gate-success-badge.show { display: inline-flex; }
@@ -316,7 +309,7 @@ body {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .gate-logo, .gate-divider, .gate-title, .gate-eyebrow, .gate-sub, .gate-form, .gate-foot {
+  .gate-logo, .gate-divider, .gate-title, .gate-form, .gate-foot {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -326,10 +319,10 @@ body {
 
 @media (max-width: 480px) {
   .gate-content { padding: 32px 22px 48px; }
-  .gate-sub { margin-bottom: 28px; }
+  .gate-title { font-size: clamp(30px, 10vw, 60px); margin-bottom: 36px; }
 }
 
 @media (max-height: 620px) {
-  .gate-logo { width: min(260px, 60vw); }
-  .gate-sub { margin-bottom: 22px; }
+  .gate-logo { width: min(110px, 30vw); }
+  .gate-title { margin-bottom: 28px; }
 }

@@ -6,7 +6,6 @@
   // Change the password by editing this constant.
   var PASSWORD = "glenrothes";
   var REDIRECT_TO = "index.html";
-  var SESSION_KEY = "distillery-gate-unlocked";
 
   var stage = document.getElementById("gate-stage");
   var form = document.getElementById("gate-form");
@@ -17,12 +16,7 @@
   var enterBtn = document.getElementById("btn-enter");
   var successBadge = document.getElementById("gate-success-badge");
 
-  function alreadyUnlocked() {
-    try { return sessionStorage.getItem(SESSION_KEY) === "yes"; } catch (e) { return false; }
-  }
-
   function unlock() {
-    try { sessionStorage.setItem(SESSION_KEY, "yes"); } catch (e) {}
     enterBtn.disabled = true;
     enterBtn.textContent = "Welcome";
     if (successBadge) successBadge.classList.add("show");
@@ -30,10 +24,6 @@
     window.setTimeout(function () {
       window.location.href = REDIRECT_TO;
     }, 650);
-  }
-
-  if (alreadyUnlocked()) {
-    unlock();
   }
 
   if (toggle && input) {
