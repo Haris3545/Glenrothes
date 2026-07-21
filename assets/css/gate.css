@@ -158,7 +158,7 @@ body {
   width: 64px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--sage), transparent);
-  margin: 0 0 40px;
+  margin: 22px 0 40px;
   opacity: 0;
   animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.45s forwards;
 }
