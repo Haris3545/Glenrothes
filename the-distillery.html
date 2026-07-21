@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Distillery — Private Preview</title>
+<meta name="description" content="A private preview of The Distillery. Please enter the password to continue.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preload" as="video" href="assets/video/hero-loop.mp4">
+<link rel="stylesheet" href="assets/css/gate.css">
+</head>
+<body>
+<a class="skip-link" href="#gate-form">Skip to password form</a>
+
+<main class="gate-stage" id="gate-stage">
+
+  <video
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster="assets/img/hero-video-poster.jpg"
+    aria-hidden="true">
+    <source src="assets/video/hero-loop.webm" type="video/webm">
+    <source src="assets/video/hero-loop.mp4" type="video/mp4">
+  </video>
+
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="gate-content">
+    <img class="gate-logo" src="assets/img/glenrothes-logo-white.png" alt="The Glenrothes, Established 1879">
+    <span class="gate-divider" aria-hidden="true"></span>
+
+    <h1 class="gate-title">The Distillery</h1>
+    <p class="gate-eyebrow">Private Preview</p>
+    <p class="gate-sub">This experience is not yet public. Please enter the password to continue.</p>
+
+    <form class="gate-form" id="gate-form" autocomplete="off">
+      <div class="password-field" id="password-field">
+        <label for="gate-password" class="visually-hidden">Password</label>
+        <input
+          type="password"
+          id="gate-password"
+          name="password"
+          placeholder="Password"
+          required
+          autofocus
+          aria-describedby="gate-error">
+        <button type="button" class="toggle-visibility" id="toggle-visibility" aria-label="Show password">
+          <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3.2"/></svg>
+          <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3.2"/><path d="M3 3l18 18"/></svg>
+        </button>
+      </div>
+
+      <button type="submit" class="btn-enter" id="btn-enter">Enter</button>
+
+      <p class="gate-error" id="gate-error" role="alert">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
+        Incorrect password. Please try again.
+      </p>
+
+      <span class="gate-success-badge" id="gate-success-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        Access granted — entering&hellip;
+      </span>
+    </form>
+  </div>
+
+  <p class="gate-foot">&copy; 2026 The Glenrothes &middot; Please enjoy responsibly</p>
+
+</main>
+
+<script src="assets/js/gate.js"></script>
+</body>
+</html>
