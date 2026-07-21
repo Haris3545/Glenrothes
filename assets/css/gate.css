@@ -91,7 +91,7 @@ body {
   width: 150%;
   height: 150%;
   z-index: 2;
-  opacity: 0.06;
+  opacity: 0.13;
   mix-blend-mode: overlay;
   pointer-events: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
@@ -131,8 +131,8 @@ body {
   position: absolute;
   top: clamp(20px, 4vh, 40px);
   z-index: 4;
-  width: clamp(58px, 7vw, 92px);
-  height: auto;
+  height: clamp(38px, 5.5vw, 58px);
+  width: auto;
   filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.5));
   opacity: 0;
   animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.15s forwards;
@@ -147,11 +147,20 @@ body {
   letter-spacing: 0.005em;
   line-height: 1.05;
   white-space: nowrap;
-  margin: 0 0 46px;
+  margin: 0;
   color: var(--cream);
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.55);
   opacity: 0;
   animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.35s forwards;
+}
+
+.gate-divider {
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sage), transparent);
+  margin: 0 0 40px;
+  opacity: 0;
+  animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.45s forwards;
 }
 
 @keyframes rise {
@@ -167,7 +176,7 @@ body {
   flex-direction: column;
   align-items: center;
   opacity: 0;
-  animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.55s forwards;
+  animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.6s forwards;
 }
 
 .password-field {
@@ -177,7 +186,7 @@ body {
   background: rgba(10, 9, 7, 0.38);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-radius: 3px;
+  border-radius: 999px;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -195,7 +204,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 15.5px;
   letter-spacing: 0.04em;
-  padding: 17px 50px 17px 20px;
+  padding: 17px 50px 17px 24px;
 }
 
 .password-field input::placeholder {
@@ -230,16 +239,15 @@ body {
 .toggle-visibility.is-visible .icon-off { display: block; }
 
 .btn-enter {
-  display: inline-block;
-  align-self: center;
-  width: auto;
+  display: block;
+  width: 100%;
   margin-top: 18px;
   font-family: 'Inter', sans-serif;
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  padding: 16px 48px;
+  padding: 16px 24px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: var(--btn-fill);
   backdrop-filter: blur(10px);
@@ -307,13 +315,7 @@ body {
 .brand-tag {
   width: fit-content;
   max-width: 100%;
-  margin: 0 0 32px;
-  padding: 14px 28px;
-  background: rgba(10, 9, 7, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  margin: 0 0 28px;
   opacity: 0;
   animation: rise 1s cubic-bezier(.22,.9,.32,1) 0.15s forwards;
 }
@@ -324,13 +326,14 @@ body {
   font-size: clamp(11px, 1.8vw, 15px);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .corner-logo, .gate-title, .gate-form, .brand-tag {
+  .corner-logo, .gate-title, .gate-divider, .gate-form, .brand-tag {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -345,6 +348,6 @@ body {
 }
 
 @media (max-height: 620px) {
-  .corner-logo { width: clamp(46px, 6vw, 72px); }
+  .corner-logo { height: clamp(30px, 4.5vw, 44px); }
   .gate-title { margin-bottom: 28px; }
 }
