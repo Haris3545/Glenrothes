@@ -8,6 +8,12 @@
 // start the standby one from 0 and cross-fade the opacity between them.
 // Neither video is ever looped or seeked mid-playback, so there's nothing
 // for the decoder to stall on.
+//
+// The cross-fade is a reveal, not a mutual fade: only the exiting video's
+// opacity ever animates. The incoming one is always fully opaque underneath,
+// just hidden behind it (see .is-current / .is-exiting in gate.css). If both
+// videos faded toward 50% at the same time instead, their darkness would
+// multiply together and the transition would visibly dip toward black.
 (function () {
   "use strict";
 
@@ -37,8 +43,9 @@
 
     standby.currentTime = 0;
     safePlay(standby);
-    standby.classList.add("is-front");
-    active.classList.remove("is-front");
+    standby.classList.add("is-current");
+    active.classList.remove("is-current");
+    active.classList.add("is-exiting");
 
     var justFinished = active;
     var newActive = standby;
@@ -48,6 +55,7 @@
     window.setTimeout(function () {
       standby.pause();
       standby.currentTime = 0;
+      standby.classList.remove("is-exiting");
       swapping = false;
     }, OVERLAP * 1000);
   }

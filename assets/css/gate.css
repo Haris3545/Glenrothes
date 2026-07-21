@@ -66,6 +66,11 @@ body {
   justify-content: center;
 }
 
+/* Cross-dissolve as a reveal, not a mutual fade: the exiting video is the
+   only one that ever animates opacity, and it sits on top of an incoming
+   video that is already fully opaque underneath. Fading two layers toward
+   50% at the same time multiplies their darkness together instead of
+   blending cleanly, which is what caused the dip to black mid-transition. */
 .bg-video {
   position: absolute;
   inset: 0;
@@ -74,12 +79,15 @@ body {
   object-fit: cover;
   object-position: center 55%;
   z-index: 0;
-  opacity: 0;
-  transition: opacity 1s linear;
-}
-.bg-video.is-front {
-  z-index: 1;
   opacity: 1;
+}
+.bg-video.is-current {
+  z-index: 1;
+}
+.bg-video.is-exiting {
+  z-index: 2;
+  transition: opacity 1s linear;
+  opacity: 0;
 }
 
 .scrim {
@@ -161,8 +169,8 @@ body {
 }
 
 .gate-divider {
-  width: 64px;
-  height: 1px;
+  width: 128px;
+  height: 2px;
   background: linear-gradient(90deg, transparent, var(--sage), transparent);
   margin: 22px 0 40px;
   opacity: 0;
