@@ -74,6 +74,12 @@ body {
   object-fit: cover;
   object-position: center 55%;
   z-index: 0;
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+.bg-video.is-front {
+  z-index: 1;
+  opacity: 1;
 }
 
 .scrim {

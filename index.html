@@ -15,13 +15,22 @@
 <main class="gate-stage" id="gate-stage">
 
   <video
-    class="bg-video"
+    class="bg-video is-front"
+    id="bg-video-a"
     autoplay
     muted
-    loop
     playsinline
     preload="auto"
     poster="assets/img/hero-video-poster.jpg"
+    aria-hidden="true">
+    <source src="assets/video/hero-loop.mp4" type="video/mp4">
+  </video>
+  <video
+    class="bg-video"
+    id="bg-video-b"
+    muted
+    playsinline
+    preload="auto"
     aria-hidden="true">
     <source src="assets/video/hero-loop.mp4" type="video/mp4">
   </video>
@@ -73,6 +82,7 @@
 
 </main>
 
+<script src="assets/js/video-loop.js"></script>
 <script src="assets/js/gate.js"></script>
 </body>
 </html>
